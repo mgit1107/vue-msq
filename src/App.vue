@@ -1,9 +1,15 @@
+<script setup>
+  import { ref } from 'vue'
+  const count = ref(0)
+</script>
+
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
+  <button @click="count++">Count is: {{ count }}</button>
 </template>
 
 <style>
