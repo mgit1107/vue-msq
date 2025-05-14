@@ -9,7 +9,7 @@
     <router-link to="/about">About</router-link>
   </nav>
   <router-view/>
-  <button @click="count++">Count is: {{ count }}</button>
+  <button @click="count++">一个简单的修改:Count is: {{ count }}</button>
 </template>
 
 <style>
