@@ -6,7 +6,8 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/links">Links</router-link>
   </nav>
   <router-view/>
   <button @click="count++">第一个简单的修改:Count is: {{ count }}</button>
