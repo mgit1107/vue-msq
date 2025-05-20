@@ -7,7 +7,10 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link> |
-    <router-link to="/links">Links</router-link>
+    <router-link to="/links">Links</router-link> |
+    <router-link to="/table">表格</router-link> |
+    <router-link to="/huangyuqiang">致敬黄育强</router-link> |
+    <router-link to="/java-resume">Java简历</router-link>
   </nav>
   <router-view/>
   <button @click="count++">第一个简单的修改:Count is: {{ count }}</button>

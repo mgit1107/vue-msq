@@ -19,6 +19,26 @@ const routes: Array<RouteRecordRaw> = [
     path: '/links',
     name: 'links',
     component: () => import(/* webpackChunkName: "weblinks" */ '../views/WebLinks.vue')
+  },
+  {
+    path: '/table',
+    name: 'table',
+    component: () => import(/* webpackChunkName: "table" */ '../components/TableDemo.vue')
+  },
+  {
+    path: '/huangyuqiang',
+    name: 'huangyuqiang',
+    component: () => import(/* webpackChunkName: "huangyuqiang" */ '../views/HuangYuqiang.vue')
+  },
+  {
+    path: '/java-resume',
+    name: 'javaResume',
+    component: () => import(/* webpackChunkName: "javaresume" */ '../views/JavaResume.vue')
+  },
+  {
+    path: '/train-ticket',
+    name: 'trainTicket',
+    component: () => import(/* webpackChunkName: "trainticket" */ '../views/TrainTicket.vue')
   }
 ]
 
