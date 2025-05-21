@@ -157,6 +157,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import { searchTrainTickets, bookTrainTicket } from '@/api/trainTicket'
 
 const ticketType = ref('single')
 const fromStation = ref('')
@@ -280,13 +281,41 @@ const selectStation = (station: string) => {
   showStationList.value = false
 }
 
-const searchTickets = () => {
-  showResults.value = true
+const searchTickets = async () => {
+  try {
+    const response = await searchTrainTickets({
+      fromStation: fromStation.value,
+      toStation: toStation.value,
+      departDate: departDate.value,
+      returnDate: returnDate.value,
+      passengerType: passengerType.value,
+      seatType: seatType.value
+    })
+    tickets.value = response.data
+    showResults.value = true
+  } catch (error) {
+    console.error('查询车票失败:', error)
+    // 这里可以添加错误提示
+  }
 }
 
-const bookTicket = (ticket: any) => {
-  console.log('预订车票:', ticket)
-  // 这里添加预订逻辑
+const bookTicket = async (ticket: any) => {
+  try {
+    await bookTrainTicket({
+      trainNo: ticket.trainNo,
+      seatType: '二等座', // 这里可以根据实际选择修改
+      passengerInfo: {
+        name: '张三', // 这里需要从用户信息中获取
+        idCard: '123456789012345678',
+        phone: '13800138000'
+      }
+    })
+    // 预订成功后的处理
+    console.log('预订成功')
+  } catch (error) {
+    console.error('预订失败:', error)
+    // 这里可以添加错误提示
+  }
 }
 </script>
 
